@@ -1,18 +1,12 @@
 import { supabase } from "@/lib/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
-type Props = {
-  params: {
-    id: string
-  }
-}
-
 export async function GET(
   request: NextRequest,
-  { params }: Props
+  context: { params: { id: string } }
 ) {
   // Await params before destructuring
-  const { id } = await params;
+  const { id } = await context.params;
   
   const { data: products, error } = await supabase
     .from("products")
