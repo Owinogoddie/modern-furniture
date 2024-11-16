@@ -6,18 +6,28 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-     // Await params before destructuringh
-  const { id } = await params;
+    // Await the params as per Next.js 15 spec
+    const { id } = await params;
 
-  const { data: products, error } = await supabase
-    .from("products")
-    .select("*")
-    .eq("id", id);
+    const { data: products, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("id", id);
 
-  console.log(error);
-  return NextResponse.json({ data: products });
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    if (!products || products.length === 0) {
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ data: products });
   } catch (error) {
-    console.log(error)
+    console.error(error);
+    return NextResponse.json(
+      { error: "Internal server error" }, 
+      { status: 500 }
+    );
   }
- 
 }
