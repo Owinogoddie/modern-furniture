@@ -5,7 +5,8 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  // Await params before destructuringh
+  try {
+     // Await params before destructuringh
   const { id } = await params;
 
   const { data: products, error } = await supabase
@@ -15,4 +16,8 @@ export async function GET(
 
   console.log(error);
   return NextResponse.json({ data: products });
+  } catch (error) {
+    console.log(error)
+  }
+ 
 }
