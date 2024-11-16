@@ -5,7 +5,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  // Await params before destructuring
+  // Await params before destructuringh
   const { id } = await params;
 
   const { data: products, error } = await supabase
