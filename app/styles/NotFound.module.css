@@ -1,0 +1,57 @@
+.notFoundContainer {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .content {
+    max-width: 600px;
+  }
+  
+  .content h1 {
+    font-family: clashDisplay, sans-serif;
+    font-size: 8rem;
+    margin: 0;
+    color: var(--butt);
+    opacity: 0.1;
+  }
+  
+  .content h2 {
+    font-family: clashDisplay, sans-serif;
+    font-size: 2rem;
+    margin: -2rem 0 1rem;
+    color: var(--nav-name);
+  }
+  
+  .content p {
+    color: var(--paragraph);
+    margin-bottom: 2rem;
+  }
+  
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--butt);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: var(--foot-back);
+    transform: translateY(-2px);
+  }
+  
+  .button svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .button:hover svg {
+    transform: translateX(4px);
+  }

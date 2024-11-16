@@ -8,7 +8,7 @@ import { useUser } from "@supabase/auth-helpers-react";
 import React from "react";
 
 export default function Contact() {
-  const [state, handleSubmit] = useForm("mjvqndqa");
+  const [state, handleSubmit] = useForm("mqakbrqe");
   const user = useUser();
 
   if (state.succeeded) {
@@ -37,8 +37,7 @@ export default function Contact() {
               type="text"
               name="contactName"
               placeholder="Name"
-              value={user?.user_metadata.full_name || ""}
-              readOnly
+              defaultValue={user?.user_metadata.full_name || ""}
               required
             />
             <ValidationError
@@ -86,8 +85,7 @@ export default function Contact() {
             <input
               type="email"
               name="email"
-              value={user?.email || ""}
-              readOnly
+              defaultValue={user?.email || ""}
               placeholder="your@email.com"
               required
             />
@@ -118,11 +116,14 @@ export default function Contact() {
                 Submit
               </button>
               <div className="contact-info">
-                <a href="mailto:sales@pacific.shop" className="contact-email">
-                  sales@pacific.shop
+                <a
+                  href="mailto:owinogoddie@gmail.com"
+                  className="contact-email"
+                >
+                  owinogoddie@gmail.com
                 </a>
-                <a href="tel:+1 718-724-9873" className="contact-phone">
-                  718-724-9873
+                <a href="tel:+254714630040" className="contact-phone">
+                  +254 714 630 040
                 </a>
               </div>
             </div>

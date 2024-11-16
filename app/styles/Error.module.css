@@ -1,0 +1,62 @@
+.errorContainer {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .content {
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  .content h1 {
+    font-family: clashDisplay, sans-serif;
+    color: var(--nav-name);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .content p {
+    color: var(--paragraph);
+    margin-bottom: 2rem;
+  }
+  
+  .button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--butt);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: satoshi, sans-serif;
+  }
+  
+  .button:hover {
+    background-color: var(--foot-back);
+    transform: translateY(-2px);
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+  }
+  
+  @media (max-width: 768px) {
+    .content h1 {
+      font-size: 1.5rem;
+    }
+    
+    .icon {
+      font-size: 3rem;
+    }
+  }

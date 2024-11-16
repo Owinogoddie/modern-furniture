@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Filter from "./FilterMenu";
@@ -32,7 +32,7 @@ export default function Products({ apiEndpoint, pageHeader }: ProductsProps) {
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [selectedPriceOption, setSelectedPriceOption] = useState<string>("");
   const [selectedSortingOption, setSelectedSortingOption] = useState<string>("");
-  const [filterProducts, setFilterProducts] = useState<Product[]>([]);
+  const [displayCount, setDisplayCount] = useState<number>(12);
   const [noProduct, setNoProduct] = useState<boolean>(false);
 
   const filterFunctions = useMemo<FilterFunctions>(() => ({
@@ -44,45 +44,37 @@ export default function Products({ apiEndpoint, pageHeader }: ProductsProps) {
     "old": (a: Product, b: Product) => new Date(a.date_added).getTime() - new Date(b.date_added).getTime(),
   }), []);
 
-  const filteringProducts = useCallback(() => {
-    const filteredProducts = [...filterProducts];
-    if (selectedPriceOption && filterFunctions[selectedPriceOption]) {
-      filteredProducts.sort(filterFunctions[selectedPriceOption]);
-    } else {
-      filteredProducts.sort((a, b) => a.id - b.id);
-    }
-
-    if (selectedSortingOption && filterFunctions[selectedSortingOption]) {
-      filteredProducts.sort(filterFunctions[selectedSortingOption]);
-    }
-    setDisplayedProducts(filteredProducts.slice(0, displayedProducts.length));
-    setFilterProducts(filteredProducts);
-  }, [filterProducts, selectedPriceOption, selectedSortingOption, displayedProducts.length, filterFunctions]);
-
+  // Fetch products
   useEffect(() => {
     fetch(apiEndpoint)
       .then((res) => res.json())
       .then((data: { data: Product[] }) => {
         const sortedProducts = data.data.sort((a, b) => a.id - b.id);
-        setProducts(data.data);
-        setFilterProducts(sortedProducts);
-        setDisplayedProducts(sortedProducts.slice(0, 12));
+        setProducts(sortedProducts);
         setLoading(false);
         setNoProduct(sortedProducts.length === 0);
       });
   }, [apiEndpoint]);
 
+  // Apply filters and update displayed products
   useEffect(() => {
-    filteringProducts();
-  }, [selectedPriceOption, selectedSortingOption, filteringProducts]);
+    if (!products.length) return;
+
+    const filteredProducts = [...products];
+
+    if (selectedPriceOption && filterFunctions[selectedPriceOption]) {
+      filteredProducts.sort(filterFunctions[selectedPriceOption]);
+    }
+
+    if (selectedSortingOption && filterFunctions[selectedSortingOption]) {
+      filteredProducts.sort(filterFunctions[selectedSortingOption]);
+    }
+
+    setDisplayedProducts(filteredProducts.slice(0, displayCount));
+  }, [products, selectedPriceOption, selectedSortingOption, displayCount, filterFunctions]);
 
   const loadProducts = () => {
-    const currentProducts = displayedProducts.length;
-    const remainingProducts = filterProducts.slice(
-      currentProducts,
-      currentProducts + 12
-    );
-    setDisplayedProducts([...displayedProducts, ...remainingProducts]);
+    setDisplayCount(prev => prev + 12);
   };
 
   return (

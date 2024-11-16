@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -14,12 +14,12 @@ export default function Footer() {
     <footer style={{ position: "sticky" }}>
       <div className="foot">
         <div className="adress">
-          <h1 className="foot-name">Modern Furniture Pacific</h1>
+          <h1 className="foot-name">Modern Furniture</h1>
           <address>
-            <p>21st St, Brooklyn</p>
-            <p>New York City</p>
-            <p>United States of America</p>
-            <p>112 15</p>
+            <p>Ngong Road, Karen</p>
+            <p>Nairobi</p>
+            <p>Kenya</p>
+            <p>00200</p>
           </address>
         </div>
         <div className="socials">
@@ -43,7 +43,7 @@ export default function Footer() {
           <h2>Categories</h2>
           <Link href="/products/category/chairs">Chairs</Link>
           <Link href="/products/category/lamps">Lamps</Link>
-          <Link href="/products/category/pots">Plant Pots</Link>
+          <Link href="/products/category/plant-pots">Plant Pots</Link>
           <Link href="/products/category/sofas">Sofas</Link>
           <Link href="/products/category/tables">Tables</Link>
         </nav>
@@ -56,7 +56,7 @@ export default function Footer() {
           <Link href="/">Vacancies</Link>
         </nav>
         <div className="credit">
-          <h3>Copyright {new Date().getFullYear()} Modern Furniture Pacific LLC</h3>
+          <h3>Copyright {new Date().getFullYear()} Modern Furniture</h3>
         </div>
       </div>
     </footer>
