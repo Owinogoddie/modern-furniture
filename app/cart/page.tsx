@@ -16,7 +16,7 @@ interface CartItem {
 }
 
 // export const metadata: Metadata = {
-//   title: "Cart | Modern Furniture Pacific",
+//   title: "Cart | Modern Furniture c",
 // };
 
 export default function Cart() {

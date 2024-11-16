@@ -105,7 +105,7 @@ export default function Header() {
     <>
       <div className="name">
         <h1>
-          <Link href="/">Pacific</Link>
+          <Link href="/">M. Furniture</Link>
         </h1>
       </div>
       <div className="top-right">

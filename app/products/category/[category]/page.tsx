@@ -48,13 +48,13 @@ export async function generateMetadata({
 
   if (!category) {
     return {
-      title: "Category Not Found | Modern Furniture Pacific",
+      title: "Category Not Found | Modern Furniture c",
     };
   }
 
   const title = category.charAt(0).toUpperCase() + category.slice(1);
     
   return {
-    title: `${title} | Modern Furniture Pacific`,
+    title: `${title} | Modern Furniture c`,
   };
 }

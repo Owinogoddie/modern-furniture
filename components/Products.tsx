@@ -120,7 +120,7 @@ export default function Products({ apiEndpoint, pageHeader }: ProductsProps) {
                   >
                     <Image
                       src={product.image}
-                      alt="Modern Furniture Pacific Product"
+                      alt="Modern Furniture c Product"
                       width={405}
                       height={475}
                       blurDataURL="data:image/png>;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8+R8AAvcB+vBGZskAAAAASUVORK5CYII="

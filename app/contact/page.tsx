@@ -23,7 +23,7 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact | Modern Furniture Pacific</title>
+        <title>Contact | Modern Furniture c</title>
       </Head>
       <div className="contact">
         <form className="contact-form" onSubmit={handleSubmit}>

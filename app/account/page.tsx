@@ -58,7 +58,7 @@ interface OrderMap {
 // }
 
 // export const metadata: Metadata = {
-//   title: "Account | Modern Furniture Pacific",
+//   title: "Account | Modern Furniture c",
 // };
 
 export default function Account() {

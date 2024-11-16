@@ -13,12 +13,12 @@ export async function generateMetadata({
   
   if (!PAGE_TYPES[pageType]) {
     return {
-      title: 'Not Found | Modern Furniture Pacific'
+      title: 'Not Found | Modern Furniture c'
     };
   }
 
   return {
-    title: `${PAGE_TYPES[pageType].title} | Modern Furniture Pacific`,
+    title: `${PAGE_TYPES[pageType].title} | Modern Furniture c`,
   };
 }
 

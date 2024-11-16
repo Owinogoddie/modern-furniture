@@ -69,7 +69,7 @@ export default function OurProducts({ resetCount }: OurProductsProps) {
                 >
                   <Image
                     src={product.image}
-                    alt="Modern Furniture Pacific Product"
+                    alt="Modern Furniture c Product"
                     width={405}
                     height={475}
                     blurDataURL="data:image/png>;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8+R8AAvcB+vBGZskAAAAASUVORK5CYII="
@@ -112,7 +112,7 @@ export default function OurProducts({ resetCount }: OurProductsProps) {
                 >
                   <Image
                     src={product.image}
-                    alt="Modern Furniture Pacific Product"
+                    alt="Modern Furniture c Product"
                     width={405}
                     height={475}
                     sizes="100vw"

@@ -26,7 +26,7 @@ async function createOrder(cart: CartItem[]) {
         },
       },
       payee: {
-        email_address: "sales@pacific.shop",
+        email_address: "sales@c.shop",
         merchant_id: "7HWJGUYZ7CYC2",
       },
       items: [
@@ -44,7 +44,7 @@ async function createOrder(cart: CartItem[]) {
     payment_source: {
       paypal: {
         experience_context: {
-          brand_name: "Modern Furniture Pacific",
+          brand_name: "Modern Furniture c",
           return_url: "http://localhost:3000/",
           cancel_url: "http://localhost:3000/",
         },
