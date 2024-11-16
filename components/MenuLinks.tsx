@@ -66,7 +66,7 @@ export default function MenuLinks({ apiEndpoint, pageHeader }: MenuLinksProps) {
             {displayedProducts.map((product) => (
               <div key={product.id} className="products">
                 <Link
-                  href={`/products/pdp/${product.id}`}
+                  href={`/products/${product.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Image

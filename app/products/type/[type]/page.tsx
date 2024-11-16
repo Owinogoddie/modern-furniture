@@ -1,4 +1,3 @@
-// app/products/type/[type]/page.tsx
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PAGE_TYPES, PageType } from '@/types/product';
@@ -9,7 +8,9 @@ export async function generateMetadata({
 }: {
   params: { type: string };
 }): Promise<Metadata> {
-  const pageType = params.type as PageType;
+  // Await params before accessing type
+  const { type } = await params;
+  const pageType = type as PageType;
   
   if (!PAGE_TYPES[pageType]) {
     return {
@@ -28,12 +29,14 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProductPage({
+export default async function ProductPage({
   params,
 }: {
   params: { type: string };
 }) {
-  const pageType = params.type as PageType;
+  // Await params before accessing type
+  const { type } = await params;
+  const pageType = type as PageType;
 
   if (!PAGE_TYPES[pageType]) {
     notFound();
