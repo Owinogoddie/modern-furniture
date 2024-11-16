@@ -6,9 +6,8 @@ import MenuLinks from '@/components/MenuLinks';
 export async function generateMetadata({
   params,
 }: {
-  params: { type: string };
+  params: Promise<{ type: string }>;
 }): Promise<Metadata> {
-  // Await params before accessing type
   const { type } = await params;
   const pageType = type as PageType;
   
@@ -32,9 +31,8 @@ export function generateStaticParams() {
 export default async function ProductPage({
   params,
 }: {
-  params: { type: string };
+  params: Promise<{ type: string }>;
 }) {
-  // Await params before accessing type
   const { type } = await params;
   const pageType = type as PageType;
 
